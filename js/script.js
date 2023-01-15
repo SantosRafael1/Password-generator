@@ -23,11 +23,13 @@ document.getElementById("generate-password-btn").addEventListener("click", gener
 
 function copyToClipboard() {
     let password = document.getElementById("password").value;
-    navigator.clipboard.writeText(password).then(function(){
-        window.alert("Copied!");
-    }, function(err){
-        alert("Failed to copy.", err);
-    });
+    if (password.length > 0){
+        navigator.clipboard.writeText(password).then(function(){
+            window.alert("Copied!");
+        }, function(err){
+            alert("Failed to copy.", err);
+        });
+    }
 }
 
 document.getElementById("password").addEventListener("click", copyToClipboard);
